@@ -4,11 +4,9 @@ import data.DocPath;
 import exceptions.BadPathException;
 import exceptions.DigitalSignatureException;
 import exceptions.NullAtr;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-
+import static org.junit.jupiter.api.Assertions.*;
 public class DocPathTest {
     @Test
     public void NullPath(){

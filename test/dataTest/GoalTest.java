@@ -4,11 +4,11 @@ import data.Goal;
 import data.goalTypes;
 import exceptions.BadGoal;
 import exceptions.NullAtr;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static data.goalTypes.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+
 
 public class GoalTest {
     @Test

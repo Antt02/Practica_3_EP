@@ -3,10 +3,10 @@ package dataTest;
 import data.Nif;
 import exceptions.BadNif;
 import exceptions.NullAtr;
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class NifTest {
     @Test
