@@ -20,7 +20,7 @@ public class PDFDocument {
     private Date creatDate;
     private DocPath path;
     private File file;
-    private final static String defaultPath = "document.pdf";
+    private final static String defaultPath = "informe.pdf";
 
     public PDFDocument() throws NullAtr, BadPathException {
         this.creatDate = new Date();
@@ -45,12 +45,20 @@ public class PDFDocument {
     }
 
     public void moveDoc(DocPath destPath) throws IOException, NullAtr, BadPathException {
+
+        if (destPath == null) throw new NullPointerException("Path no pot ser null");
+        if (!file.renameTo(new File(destPath.getDocPath()))) throw new IOException("El path especificat no existeix."); //xd
+        path = new DocPath(destPath.getDocPath());
+        file = new File(destPath.getDocPath());
+
+        /*
         if (!new File(destPath.getDocPath()).exists()) throw new IOException("El path especificat no existeix.");
         Path sourcePath = Paths.get(path.getDocPath());
         Path targetPath = Paths.get(defaultPath);
         Files.move(sourcePath, targetPath, REPLACE_EXISTING);
         System.out.println("Movent el document de " + path + " a " + destPath);
         path = destPath;
+         */
     }
 
     public void openDoc(DocPath path) throws NullAtr, BadPathException {

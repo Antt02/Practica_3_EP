@@ -12,12 +12,13 @@ import static org.junit.Assert.assertNull;
 
 public class GoalTest {
     @Test
-    public void NullGoal(){
+    public void NullGoal() {
         Goal goal = new Goal(null);
-        try{
+        try {
             assertNull(goal.getGoal());
         } catch (NullAtr | BadGoal e) {
-            System.out.println(e);
+            e.printStackTrace();
+            //System.out.println(e);
         }
     }
 

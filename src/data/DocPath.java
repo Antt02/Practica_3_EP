@@ -29,6 +29,6 @@ public class DocPath {
 
     @Override
     public String toString () {
-        return "DocPath{" + "DocPath ciudadano='" + docpath + '\'' + '}';
+        return "DocPath{" + "DocPath='" + docpath + '\'' + '}';
     }
 }
