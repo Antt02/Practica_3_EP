@@ -7,11 +7,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import publicadministration.PDFDocument;
 
-import javax.print.Doc;
-
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class PDFDocumentTest {
     private PDFDocument doc;
@@ -41,5 +40,18 @@ public class PDFDocumentTest {
         } catch (NullAtr | BadPathException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void openDocTest() {
+        DocPath p = new DocPath("src/informe.pdf");
+        assertDoesNotThrow(() -> doc.openDoc(p));
+    }
+
+    @Test
+    public void openDocNullTest() {
+        Throwable e = assertThrows(IllegalArgumentException.class, () -> {
+            doc.openDoc(new DocPath("src/hola.pdf"));
+        });
     }
 }
