@@ -33,7 +33,6 @@ public class UnifiedPlatform {
 
     //constructor
     public UnifiedPlatform() {
-
         this.user = new Citizen(new Nif(""),
                 "",
                 "",
@@ -42,7 +41,6 @@ public class UnifiedPlatform {
                 new SmallCode(""),
                 new DigitalSignature(""));
         this.nowState = State.INITIAL;
-        //this.user = ???;
     }
 
     // Input events
@@ -91,7 +89,6 @@ public class UnifiedPlatform {
             System.out.println("[O] CAMBIO ESTADO A CURRENT WORKING");
             this.isAuth = true;
         }
-
     }
 
     public void enterPIN(SmallCode pin) throws NotValidPINException, ConnectException, NullAtr {
@@ -113,28 +110,27 @@ public class UnifiedPlatform {
         }
     }
 
-    private void realizePayment() {
+    private void realizePayment() throws IncorrectStateException {
+        if (this.nowState != State.CURRENTLY_WORKING) throw new IncorrectStateException();
+        System.out.println("[O] INTRODUEIXI LES DADES DE LA SEVA TARJETA DE CRÈDIT");
     }
 
     private void enterCardData(CreditCard cardD) throws IncompleteFormException, NotValidPaymentDataException, InsufficientBalanceException, ConnectException, NullAtr {
-        if(CAS.askForApproval("0001", cardD, new Date(), BigDecimal.valueOf(-3.86))){
+        if (CAS.askForApproval("0001", cardD, new Date(), BigDecimal.valueOf(-3.86))) {
             this.user.setCard(cardD);
             System.out.println("[O] CAMBI DE CARD " + cardD.toString());
         } else {
             throw new IncompleteFormException();
         }
-
     }
 
     private void obtainCertificate(Goal goal) throws BadPathException, DigitalSignatureException, ConnectException, BadNif, NullAtr {
-        if(!this.obteined){
-            CriminalRecordCertf cert = justiceMinistry.getCriminalRecordCertf(this.user,goal);
+        if (!this.obteined) {
+            CriminalRecordCertf cert = justiceMinistry.getCriminalRecordCertf(this.user, goal);
             System.out.println("[O]: OBTENIR CERTIFICAT");
             openDocument(cert.getPath());
             this.obteined = true;
         }
-
-
     }
 
     private void printDocument() throws BadPathException, PrintingException {
