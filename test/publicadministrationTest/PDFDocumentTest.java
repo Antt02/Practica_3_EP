@@ -1,8 +1,7 @@
 package publicadministrationTest;
 
 import data.DocPath;
-import exceptions.BadPathException;
-import exceptions.NullAtr;
+import exceptions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import publicadministration.PDFDocument;

@@ -1,7 +1,6 @@
 package publicadministrationTest;
 
-import data.Nif;
-import data.SmallCode;
+import data.*;
 import exceptions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

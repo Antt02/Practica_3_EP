@@ -1,8 +1,6 @@
 package publicadministration;
 
-import data.DigitalSignature;
-import data.Nif;
-import data.SmallCode;
+import data.*;
 import exceptions.BadNif;
 import exceptions.NullAtr;
 

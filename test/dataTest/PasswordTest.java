@@ -1,8 +1,7 @@
 package dataTest;
 
 import data.Password;
-import exceptions.BadPassword;
-import exceptions.NullAtr;
+import exceptions.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

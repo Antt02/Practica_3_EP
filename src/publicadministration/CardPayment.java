@@ -1,8 +1,7 @@
 package publicadministration;
 
 import data.Nif;
-import exceptions.BadNif;
-import exceptions.NullAtr;
+import exceptions.*;
 
 import java.math.BigDecimal;
 import java.util.Date;

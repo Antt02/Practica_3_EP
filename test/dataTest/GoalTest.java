@@ -1,9 +1,7 @@
 package dataTest;
 
-import data.Goal;
-import data.goalTypes;
-import exceptions.BadGoal;
-import exceptions.NullAtr;
+import data.*;
+import exceptions.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

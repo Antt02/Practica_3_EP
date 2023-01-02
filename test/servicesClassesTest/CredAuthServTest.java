@@ -1,15 +1,12 @@
 package servicesClassesTest;
 
-import data.DigitalSignature;
-import data.Nif;
-import data.SmallCode;
-import exceptions.ConnectException;
-import exceptions.InsufficientBalanceException;
-import exceptions.NotValidPaymentDataException;
-import exceptions.NullAtr;
+import data.*;
+
+import exceptions.*;
+
 import org.junit.jupiter.api.Test;
-import publicadministration.Citizen;
-import publicadministration.CreditCard;
+import publicadministration.*;
+
 import servicesClasses.CredAuthServ;
 
 import java.math.BigDecimal;

@@ -1,8 +1,6 @@
 package servicesClassesTest;
 
-import data.DigitalSignature;
-import data.Nif;
-import data.SmallCode;
+import data.*;
 import exceptions.*;
 import org.junit.jupiter.api.Test;
 import publicadministration.Citizen;

@@ -1,7 +1,5 @@
 package publicadministration;
 
-import data.Nif;
-import data.SmallCode;
 
 import java.util.Date;
 

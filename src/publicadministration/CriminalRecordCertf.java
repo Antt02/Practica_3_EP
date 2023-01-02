@@ -1,10 +1,7 @@
 package publicadministration;
 
-import data.Goal;
-import data.Nif;
-import data.DigitalSignature;
-import exceptions.BadPathException;
-import exceptions.NullAtr;
+import data.*;
+import exceptions.*;
 
 public class CriminalRecordCertf extends PDFDocument{
 

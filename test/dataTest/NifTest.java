@@ -1,8 +1,7 @@
 package dataTest;
 
 import data.Nif;
-import exceptions.BadNif;
-import exceptions.NullAtr;
+import exceptions.*;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,26 +1,19 @@
 package publicadministration;
 
 import data.DocPath;
-import exceptions.BadPathException;
-import exceptions.NullAtr;
+import exceptions.*;
 
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.Date;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 public class PDFDocument {
 
     private Date creatDate;
     private DocPath path;
     private File file;
-    private final static String defaultPath = "informe.pdf";
+    private final static String defaultPath = "informe";
 
     public PDFDocument() throws NullAtr, BadPathException {
         this.creatDate = new Date();

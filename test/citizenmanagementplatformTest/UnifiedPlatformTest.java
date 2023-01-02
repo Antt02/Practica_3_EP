@@ -1,8 +1,7 @@
 package citizenmanagementplatformTest;
 
 import citizenmanagementplataform.UnifiedPlatform;
-import data.Nif;
-import data.SmallCode;
+import data.*;
 import exceptions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,7 +32,7 @@ public class UnifiedPlatformTest {
     }
 
     @Test
-    public void enterNIFandPINobtNullValdateTest() throws NifNotRegisteredException, AnyMobileRegisteredException, ConnectException, NullAtr, IncorrectStateException {
+    public void enterNIFandPINotNullValdateTest() throws NifNotRegisteredException, AnyMobileRegisteredException, ConnectException, NullAtr, IncorrectStateException {
         try {
             Nif nif = new Nif("12345678A");
             up.enterNIFandPINobt(nif, null);

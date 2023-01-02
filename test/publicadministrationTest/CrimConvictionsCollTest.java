@@ -1,18 +1,13 @@
 package publicadministrationTest;
 
-import data.DigitalSignature;
-import data.Nif;
-import data.SmallCode;
+import data.*;
 import org.junit.jupiter.api.BeforeEach;
 
 import org.junit.jupiter.api.Test;
-import publicadministration.Citizen;
-import publicadministration.CrimConviction;
-import publicadministration.CrimConvictionsColl;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import publicadministration.*;
+
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 

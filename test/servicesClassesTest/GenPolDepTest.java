@@ -1,8 +1,7 @@
 package servicesClassesTest;
 
 import data.*;
-import exceptions.ConnectException;
-import exceptions.IncorrectVerificationException;
+import exceptions.*;
 import org.junit.jupiter.api.Test;
 import publicadministration.Citizen;
 import servicesClasses.GenPolDep;

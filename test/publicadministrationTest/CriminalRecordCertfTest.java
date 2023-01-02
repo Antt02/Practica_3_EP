@@ -1,18 +1,12 @@
 package publicadministrationTest;
 
-import data.DigitalSignature;
-import data.Goal;
-import data.Nif;
-import data.SmallCode;
-import exceptions.BadPathException;
-import exceptions.NullAtr;
+import data.*;
+import exceptions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import publicadministration.Citizen;
-import publicadministration.CrimConviction;
-import publicadministration.CrimConvictionsColl;
-import publicadministration.CriminalRecordCertf;
+import publicadministration.*;
+
 
 import java.util.Date;
 
