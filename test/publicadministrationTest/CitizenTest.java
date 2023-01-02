@@ -25,7 +25,7 @@ public class CitizenTest {
     @Test
     public void sameCitizen() {
         Citizen civ2 = new Citizen(new Nif("12345678A"), "Juan", "Carrer Lleida n1", "678888675", date, new SmallCode("123"), new DigitalSignature("0123456789"));
-        assertTrue(civ.equals(civ2));
+        assertEquals(civ, civ2);
     }
 
     @Test
