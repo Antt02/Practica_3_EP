@@ -6,7 +6,10 @@ import exceptions.NullAtr;
 import exceptions.BadNif;
 import exceptions.BadSmallCode;
 
+import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class CreditCard {
@@ -15,12 +18,16 @@ public class CreditCard {
     private final String cardNumb; // The number of the credit card
     private final Date expirDate; // The expiration date for the credit card
     private final SmallCode svc; // The Safe Verification Code
+    private BigDecimal balance;
+    //private Map<String, CardPayment> cardPayments;
 
     public CreditCard(Nif nif, String cNum, Date d, SmallCode c) {
         this.nif = nif;
         this.cardNumb = cNum;
         this.expirDate = d;
         this.svc = c;
+        this.balance = null;
+        //this.cardPayments = null;
     }
 
     public Date getExpirDate() {
@@ -39,6 +46,10 @@ public class CreditCard {
         return this.cardNumb;
     }
 
+    public BigDecimal getBalance() {
+        return this.balance;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -46,6 +57,7 @@ public class CreditCard {
         CreditCard cc = (CreditCard) o;
         return nif.equals(cc.nif) && cardNumb.equals(cc.cardNumb) && expirDate.equals(cc.expirDate) && svc.equals(cc.svc);
     }
+
     @Override
     //Aqui dubto del tostring
     public String toString() {
