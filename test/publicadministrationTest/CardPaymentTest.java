@@ -13,12 +13,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CardPaymentTest {
     private CardPayment cp;
+    private final Date date = new Date();
 
     @BeforeEach
     public void setup() {
-        cp = new CardPayment("123", new Nif("12345678A"), new Date(), new BigDecimal("12345"));
+        cp = new CardPayment("123", new Nif("12345678A"), date, new BigDecimal("12345"));
     }
 
+    @Test
+    public void sameCardpayment(){
+        CardPayment cp2 = new CardPayment("123", new Nif("12345678A"), date, new BigDecimal("12345"));
+        assertEquals(cp2, cp);
+    }
     @Test
     public void sameNif() {
         try {
