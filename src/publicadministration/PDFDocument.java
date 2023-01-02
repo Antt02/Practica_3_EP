@@ -56,7 +56,7 @@ public class PDFDocument {
             File file = new File(path.getDocPath());
             String abspath = file.getAbsolutePath();
             Desktop.getDesktop().open(new File(abspath));
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }

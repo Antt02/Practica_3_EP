@@ -14,12 +14,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CitizenTest {
     private Citizen civ;
+    private final Date date = new Date();
 
     @BeforeEach
     public void setUp() {
-        civ = new Citizen(new Nif("12345678A"), "Juan", "Carrer Lleida n1", "678888675", new Date(), new SmallCode("123"), new DigitalSignature("0123456789"));
+        civ = new Citizen(new Nif("12345678A"), "Juan", "Carrer Lleida n1", "678888675", date, new SmallCode("123"), new DigitalSignature("0123456789"));
     }
-
+    @Test
+    public void sameCitizen(){
+        Citizen civ2 = new Citizen(new Nif("12345678A"), "Juan", "Carrer Lleida n1", "678888675", date, new SmallCode("123"), new DigitalSignature("0123456789"));
+        assertTrue(civ.equals(civ2));
+    }
     @Test
     public void sameNif() {
         try {

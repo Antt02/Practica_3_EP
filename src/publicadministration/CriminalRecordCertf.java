@@ -41,4 +41,18 @@ public class CriminalRecordCertf extends PDFDocument{
     public CrimConvictionsColl getCrimConvs() {
         return this.crimConvs;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CriminalRecordCertf crmRC = (CriminalRecordCertf) o;
+        return nif.equals(crmRC.nif) && name.equals(crmRC.name) && goal.equals(crmRC.goal) && digSign.equals(crmRC.digSign) && crimConvs.equals(crmRC.crimConvs);
+    }
+    @Override
+    public String toString() {
+        return "CrimConvictionsCertf{" +
+                "nif=" + this.nif +
+                ", CrimConvictions='" + this.crimConvs + "}";
+    }
 }

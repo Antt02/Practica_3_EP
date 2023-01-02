@@ -40,6 +40,13 @@ public class CreditCard {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CreditCard cc = (CreditCard) o;
+        return nif.equals(cc.nif) && cardNumb.equals(cc.cardNumb) && expirDate.equals(cc.expirDate) && svc.equals(cc.svc);
+    }
+    @Override
     //Aqui dubto del tostring
     public String toString() {
         try {

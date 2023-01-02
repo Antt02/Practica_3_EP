@@ -28,6 +28,13 @@ public class CrimConviction {
         return this.sentence;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CrimConviction crmC = (CrimConviction) o;
+        return commitDate.equals(crmC.commitDate) && offense.equals(crmC.offense) && sentence.equals(crmC.sentence);
+    }
     public String toString () {
         return "CrimConviction{" +
             "commitDate=" + this.commitDate +

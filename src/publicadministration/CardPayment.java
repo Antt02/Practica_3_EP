@@ -38,6 +38,13 @@ public class CardPayment {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CardPayment cp = (CardPayment) o;
+        return nif.equals(cp.nif) && reference.equals(cp.reference) && date.equals(cp.date) && imp.equals(cp.imp);
+    }
+    @Override
     public String toString() {
         try {
             return "CardPayment{" +

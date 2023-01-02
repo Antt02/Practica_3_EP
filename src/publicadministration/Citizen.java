@@ -30,10 +30,11 @@ public class Citizen {
         this.digSign = DS;
     }
 
-    public Nif getNif() throws NullAtr{
-        if(this.nif == null) throw new NullAtr("El Citizen te el nif null");
+    public Nif getNif() throws NullAtr {
+        if (this.nif == null) throw new NullAtr("El Citizen te el nif null");
         return this.nif;
     }
+
     public String getName() {
         return this.name;
     }
@@ -45,14 +46,25 @@ public class Citizen {
     public String getMobileNumb() {
         return this.mobileNumb;
     }
+
     public Date getValDate() {
         return this.valDate;
     }
+
     public SmallCode getPIN() {
         return this.pin;
     }
+
     public DigitalSignature getDigSign() {
         return this.digSign;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Citizen civ = (Citizen) o;
+        return nif.equals(civ.nif) && name.equals(civ.name) && mobileNumb.equals(civ.mobileNumb) && address.equals(civ.address) && valDate.equals(civ.valDate) && pin.equals(civ.pin) && digSign.equals(civ.digSign);
     }
 
     public String toString() {
