@@ -1,11 +1,12 @@
 package citizenmanagementplataform;
 
 import data.*;
-
 import exceptions.*;
 import publicadministration.*;
-import services.*;
-import servicesClasses.*;
+import services.CAS;
+import services.CertificationAuthority;
+import services.GPD;
+import services.JusticeMinistry;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -21,9 +22,11 @@ public class UnifiedPlatform {
     State nowState;
     boolean isAuth = false;
     byte authMethod;
-    private ClavePIN certificationAuthority;
-    private CredAuthServ CAS;
+    private JusticeMinistry justiceMinistry;
+    private CertificationAuthority certAuth;
+    private CAS CAS;
     private GPD gpd;
+    boolean obteined = false;
     //representació de quin procés estem fent?
 
     //Getters
@@ -75,7 +78,7 @@ public class UnifiedPlatform {
         if (nif == null) throw new NifNotRegisteredException();
         if (valDate == null) throw new IncorrectValDateException();
         if (this.authMethod != 0) {
-            if (certificationAuthority.sendPIN(nif, valDate)) {
+            if (certAuth.sendPIN(nif, valDate)) {
                 System.out.println("[O] ENVIADO PIN " + nif);
             } else {
                 throw new ConnectException();
@@ -93,7 +96,7 @@ public class UnifiedPlatform {
 
     public void enterPIN(SmallCode pin) throws NotValidPINException, ConnectException, NullAtr {
         if (pin == null) throw new NotValidPINException();
-        if (certificationAuthority.checkPIN(this.user.getNif(), pin)) {
+        if (certAuth.checkPIN(this.user.getNif(), pin)) {
             System.out.println("[O] COMPROVACION PIN " + pin);
         } else {
             throw new ConnectException();
@@ -110,22 +113,27 @@ public class UnifiedPlatform {
         }
     }
 
-    //aquesta funció s'utilitza al rebre el okay de la DGP
-    private void realizePayment() throws IncorrectStateException {
-        if (this.nowState != State.CURRENTLY_WORKING) throw new IncorrectStateException();
-        System.out.println("[O] INTRODUZCA SUS DATOS"); // formulario datos de pago
+    private void realizePayment() {
     }
 
     private void enterCardData(CreditCard cardD) throws IncompleteFormException, NotValidPaymentDataException, InsufficientBalanceException, ConnectException, NullAtr {
-        if (CAS.askForApproval("Transacció 0", cardD, new Date(), BigDecimal.valueOf(-3.86))) {
+        if(CAS.askForApproval("0001", cardD, new Date(), BigDecimal.valueOf(-3.86))){
             this.user.setCard(cardD);
-            System.out.println("[O] DATOS CORRECTOS, PROCEDIENDO A REALIZAR LA TRANSACCIÓN");
+            System.out.println("[O] CAMBI DE CARD " + cardD.toString());
         } else {
             throw new IncompleteFormException();
         }
+
     }
 
-    private void obtainCertificate() throws BadPathException, DigitalSignatureException, ConnectException {
+    private void obtainCertificate(Goal goal) throws BadPathException, DigitalSignatureException, ConnectException, BadNif, NullAtr {
+        if(!this.obteined){
+            CriminalRecordCertf cert = justiceMinistry.getCriminalRecordCertf(this.user,goal);
+            System.out.println("[O]: OBTENIR CERTIFICAT");
+            openDocument(cert.getPath());
+            this.obteined = true;
+        }
+
 
     }
 
