@@ -13,7 +13,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class CredAuthServ implements CAS {
-    //potser cal algun setter?
     Citizen citizen;
 
     public CredAuthServ(Citizen citizen){this.citizen = citizen;}
@@ -22,12 +21,13 @@ public class CredAuthServ implements CAS {
         if(!cardData.getNif().equals(citizen.getNif())){
             throw new NotValidPaymentDataException();
         }
-        //no se com checkejar el balance, ja que només tenim aquest atribut a CardPayment
-        //podem afegir-lo a CreditCard? ns
-        //parla d'un compte associat a la tarjeta, potser si que ho hem de fer pero ns
-        //si podeu preguntar-ho per disc o algo tysm
-        CardPayment payment = new CardPayment(nTrans, citizen.getNif(), date, imp);
-        //reduim el balance del compte del ciutadà segons imp? setter o algo ns?
+        if (cardData.getBalance().compareTo(imp) < 0){
+            throw new InsufficientBalanceException();
+        } else {
+            CardPayment payment = new CardPayment(nTrans, citizen.getNif(), date, imp);
+            cardData.setBalance(payment.getImport());
+            System.out.println("[I] Transferència realitzada en èxit.");
+        }
         return true;
     }
 }

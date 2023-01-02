@@ -32,7 +32,6 @@ public class ClavePIN implements CertificationAuthority {
 
     @Override
     public boolean checkPIN(Nif nif, SmallCode pin) throws NotValidPINException, ConnectException, NullAtr {
-        //vigencia? la pela?
         if (!nif.equals(citizen.getNif()) || !pin.equals(citizen.getPIN())){
             throw new NotValidPINException();
         }

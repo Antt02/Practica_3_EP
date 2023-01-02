@@ -13,12 +13,10 @@ public class GenPolDep implements GPD {
     public GenPolDep(Citizen citizen){this.citizen = citizen;}
     @Override
     public boolean verifyData(Citizen persData, Goal goal) throws IncorrectVerificationException, ConnectException {
-        //????????????????????????????????????????????????????
-        if(!persData.equals(citizen)){
+        if(!persData.equals(citizen) || !goal.checkGoal()){
             throw new IncorrectVerificationException();
         }
-        //registerProced(persData, goal) no se a que es refereix
-        //fent el UnifiedPlatform suposo que tindrà més sentit
+        System.out.println("[I] Procedimiento registrado");
         return true;
     }
 }

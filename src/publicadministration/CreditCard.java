@@ -49,6 +49,9 @@ public class CreditCard {
     public BigDecimal getBalance() {
         return this.balance;
     }
+    public void setBalance(BigDecimal imp) {
+        this.balance = this.balance.subtract(imp);
+    }
 
     @Override
     public boolean equals(Object o) {

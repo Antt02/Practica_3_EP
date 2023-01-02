@@ -15,7 +15,7 @@ public class Goal {
         return goal;
     }
 
-    private boolean checkGoal(goalTypes goal) {
+    public boolean checkGoal() {
         for(goalTypes gt : goalTypes.values()) {
             if (goal == gt) {
                 return true;

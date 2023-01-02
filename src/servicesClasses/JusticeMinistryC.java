@@ -18,10 +18,6 @@ public class JusticeMinistryC implements JusticeMinistry {
         }
         DigitalSignature ds = new DigitalSignature(citizen.getDigSign().getDigitalsignature());
         CrimConvictionsColl coll = new CrimConvictionsColl(citizen);
-        /*
-        TODO: BORRAR COMENTARI ABANS DE FER COMMIT
-        sempre tindrem ciutadans sense crims? potser
-        */
         return new CriminalRecordCertf(citizen.getNif(), citizen.getName(), g, ds, coll);
     }
 }
