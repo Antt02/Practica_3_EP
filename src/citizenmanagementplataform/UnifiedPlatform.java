@@ -1,12 +1,13 @@
 package citizenmanagementplataform;
 
 import data.*;
-import dummy.CertificationAuthorityDummy;
+
 import exceptions.*;
 import publicadministration.*;
-import services.CertificationAuthority;
-import services.GPD;
+import services.*;
+import servicesClasses.*;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 public class UnifiedPlatform {
@@ -20,7 +21,8 @@ public class UnifiedPlatform {
     State nowState;
     boolean isAuth = false;
     byte authMethod;
-    private CertificationAuthorityDummy certificationAuthority;
+    private ClavePIN certificationAuthority;
+    private CredAuthServ CAS;
     private GPD gpd;
     //representació de quin procés estem fent?
 
@@ -108,14 +110,19 @@ public class UnifiedPlatform {
         }
     }
 
-    private void realizePayment() {
-        // TODO: NI IDEA COM FER-HO, podrien faltar metodes a CAS?
+    //aquesta funció s'utilitza al rebre el okay de la DGP
+    private void realizePayment() throws IncorrectStateException {
+        if (this.nowState != State.CURRENTLY_WORKING) throw new IncorrectStateException();
+        System.out.println("[O] INTRODUZCA SUS DATOS"); // formulario datos de pago
     }
 
-    private void enterCardData(CreditCard cardD) throws IncompleteFormException, NotValidPaymentDataException, InsufficientBalanceException, ConnectException {
-        // TODO: DIRIA QUE FALTA FER COMPROVACIONS
-        this.user.setCard(cardD);
-        System.out.println("[O] CAMBI DE CARD " + cardD.toString());
+    private void enterCardData(CreditCard cardD) throws IncompleteFormException, NotValidPaymentDataException, InsufficientBalanceException, ConnectException, NullAtr {
+        if (CAS.askForApproval("Transacció 0", cardD, new Date(), BigDecimal.valueOf(-3.86))) {
+            this.user.setCard(cardD);
+            System.out.println("[O] DATOS CORRECTOS, PROCEDIENDO A REALIZAR LA TRANSACCIÓN");
+        } else {
+            throw new IncompleteFormException();
+        }
     }
 
     private void obtainCertificate() throws BadPathException, DigitalSignatureException, ConnectException {

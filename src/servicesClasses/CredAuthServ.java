@@ -24,10 +24,6 @@ public class CredAuthServ implements CAS {
         }
         if (cardData.getBalance().compareTo(imp) < 0){
             throw new InsufficientBalanceException();
-        } else {
-            CardPayment payment = new CardPayment(nTrans, citizen.getNif(), date, imp);
-            cardData.setBalance(payment.getImport());
-            System.out.println("[I] Transferència realitzada en èxit.");
         }
         return true;
     }
