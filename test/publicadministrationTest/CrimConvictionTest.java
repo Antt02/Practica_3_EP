@@ -13,14 +13,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CrimConvictionTest {
     private CrimConviction crmC;
-    private Date date;
+    private final Date date = new Date();
 
     @BeforeEach
     public void setUp() {
-        crmC = new CrimConviction(new Date(), "Arson", "12 years");
-        date = new Date();
+        crmC = new CrimConviction(date, "Arson", "12 years");
     }
-
+    @Test
+    public void sameCrimConviction(){
+        CrimConviction crmC2 = new CrimConviction(date, "Arson", "12 years");
+        assertEquals(crmC2, crmC);
+    }
     @Test
     public void sameDate() {
         assertEquals(date, crmC.getCommitDate());

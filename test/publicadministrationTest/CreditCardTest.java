@@ -13,12 +13,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CreditCardTest {
     private CreditCard cc;
+    private final Date date = new Date();
 
     @BeforeEach
     public void setUp(){
-        cc = new CreditCard(new Nif("12345678A"), "1234567814325674", new Date(), new SmallCode("123"));
+        cc = new CreditCard(new Nif("12345678A"), "1234567814325674", date, new SmallCode("123"));
     }
 
+    @Test
+    public void sameCreditCard(){
+        CreditCard cc2 = new CreditCard(new Nif("12345678A"), "1234567814325674", date, new SmallCode("123"));
+        assertEquals(cc2, cc);
+    }
     @Test
     public void sameNif(){
         try {
