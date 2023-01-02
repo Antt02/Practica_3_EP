@@ -1,6 +1,7 @@
 package citizenmanagementplataform;
 
 import data.*;
+import dummy.CertificationAuthorityDummy;
 import exceptions.*;
 import publicadministration.*;
 import services.CertificationAuthority;
@@ -19,7 +20,7 @@ public class UnifiedPlatform {
     State nowState;
     boolean isAuth = false;
     byte authMethod;
-    private CertificationAuthority certificationAuthority;
+    private CertificationAuthorityDummy certificationAuthority;
     private GPD gpd;
     //representació de quin procés estem fent?
 
@@ -121,7 +122,7 @@ public class UnifiedPlatform {
     }
 
     private void realizePayment () {
-        // TODO: NI IDE COM FER-HO, podrien faltar metodes a CAS?
+        // TODO: NI IDEA COM FER-HO, podrien faltar metodes a CAS?
     }
 
     private void enterCardData (CreditCard cardD) throws IncompleteFormException, NotValidPaymentDataException, InsufficientBalanceException, ConnectException{
