@@ -40,7 +40,7 @@ public class PDFDocumentTest {
 
     @Test
     public void openDocTest() {
-        DocPath p = new DocPath("Practica_3_EP\\src\\informe.pdf");
+        DocPath p = new DocPath("src\\informe.pdf");
         assertDoesNotThrow(() -> doc.openDoc(p));
     }
 

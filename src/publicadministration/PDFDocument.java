@@ -13,7 +13,7 @@ public class PDFDocument {
     private Date creatDate;
     private DocPath path;
     private File file;
-    private final static String defaultPath = "informe";
+    private final static String defaultPath = "informe.pdf";
 
     public PDFDocument() throws NullAtr, BadPathException {
         this.creatDate = new Date();
