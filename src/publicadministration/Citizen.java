@@ -30,7 +30,7 @@ public class Citizen {
         this.valDate = vDate;
         this.pin = PIN;
         this.digSign = DS;
-        //this.card = null;
+        //this.card = card;
     }
 
 

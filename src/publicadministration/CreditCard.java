@@ -26,7 +26,7 @@ public class CreditCard {
         this.cardNumb = cNum;
         this.expirDate = d;
         this.svc = c;
-        this.balance = null;
+        this.balance = BigDecimal.valueOf(0);
         //this.cardPayments = null;
     }
 

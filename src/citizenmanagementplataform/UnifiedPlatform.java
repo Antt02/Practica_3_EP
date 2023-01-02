@@ -28,7 +28,6 @@ public class UnifiedPlatform {
 
     //constructor
     public UnifiedPlatform(){
-
         this.user = new Citizen(new Nif(""),
                 "",
                 "",
@@ -60,7 +59,7 @@ public class UnifiedPlatform {
         if(this.nowState != State.IN_TRAMITES){
             // TODO AQUI ANIRIA LA EXECPCIO DE PAGINA PERO NO SE QUINA ES
         }
-        if(this.isAuth == false){
+        if(!this.isAuth){
             System.out.println("[P] AUTORIZACION"); // PAGINA AUTORIZACION
             this.nowState = State.TO_AUTH;
         }
@@ -94,8 +93,9 @@ public class UnifiedPlatform {
             this.nowState = State.CURRENTLY_WORKING;
             System.out.println("[O] CAMBIO ESTADO A CURRENT WORKING");
             this.isAuth = true;
-        }
+        } /*else ?{
 
+        }*/
     }
 
     public void enterPIN (SmallCode pin) throws NotValidPINException, ConnectException, NullAtr {
