@@ -2,7 +2,6 @@ package dataTest;
 
 import data.Password;
 import exceptions.BadPassword;
-import exceptions.BadPathException;
 import exceptions.NullAtr;
 import org.junit.jupiter.api.Test;
 

@@ -17,8 +17,7 @@ public class GoalTest {
         try {
             assertNull(goal.getGoal());
         } catch (NullAtr | BadGoal e) {
-            e.printStackTrace();
-            //System.out.println(e);
+            System.out.println(e);
         }
     }
 

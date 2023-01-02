@@ -45,7 +45,6 @@ public class PDFDocument {
     }
 
     public void moveDoc(DocPath destPath) throws IOException, NullAtr, BadPathException {
-
         if (destPath == null) throw new NullPointerException("Path no pot ser null");
         path = new DocPath(destPath.getDocPath());
         file = new File(destPath.getDocPath());
@@ -55,7 +54,8 @@ public class PDFDocument {
     public void openDoc(DocPath path) throws NullAtr, BadPathException {
         try {
             File file = new File(path.getDocPath());
-            Desktop.getDesktop().open(file);
+            String abspath = file.getAbsolutePath();
+            Desktop.getDesktop().open(new File(abspath));
         }catch (IOException e){
             e.printStackTrace();
             throw new RuntimeException(e);

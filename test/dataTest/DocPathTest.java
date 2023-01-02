@@ -2,7 +2,6 @@ package dataTest;
 
 import data.DocPath;
 import exceptions.BadPathException;
-import exceptions.DigitalSignatureException;
 import exceptions.NullAtr;
 import org.junit.jupiter.api.Test;
 

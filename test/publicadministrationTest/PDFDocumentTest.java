@@ -8,6 +8,10 @@ import org.junit.jupiter.api.Test;
 import publicadministration.PDFDocument;
 
 import java.io.IOException;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -44,7 +48,7 @@ public class PDFDocumentTest {
 
     @Test
     public void openDocTest() {
-        DocPath p = new DocPath("src/informe.pdf");
+        DocPath p = new DocPath("Practica_3_EP\\src\\informe.pdf");
         assertDoesNotThrow(() -> doc.openDoc(p));
     }
 

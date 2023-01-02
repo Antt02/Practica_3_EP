@@ -13,9 +13,10 @@ public class CardPayment {
     private final Nif nif; // The nif of the user
     private final Date date; // The date of the operation
     private final BigDecimal imp; // The import of the payment
-    public CardPayment (String ref, Nif nif, Date date, BigDecimal imp) {
+
+    public CardPayment(String ref, Nif nif, Date date, BigDecimal imp) {
         this.reference = ref;
-        this.nif =nif;
+        this.nif = nif;
         this.date = date;
         this.imp = imp;
     }
@@ -37,7 +38,7 @@ public class CardPayment {
     }
 
     @Override
-    public String toString () {
+    public String toString() {
         try {
             return "CardPayment{" +
                     "reference=" + this.reference +
