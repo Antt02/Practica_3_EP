@@ -50,7 +50,7 @@ public class UnifiedPlatform {
 
     public void selectProcedures () {
         if(this.nowState != State.IN_MIN_JUST){ // comprovacion que se esta en la pagina del ministerio de justica
-
+            // TODO AQUI ANIRIA LA EXECPCIO DE PAGINA PERO NO SE QUINA ES
         }
         System.out.println("[P] TRAMITES");
         this.nowState = State.IN_TRAMITES; // cambio a la pagina de tramites
@@ -58,7 +58,7 @@ public class UnifiedPlatform {
 
     public void selectCriminalReportCertf () {
         if(this.nowState != State.IN_TRAMITES){
-
+            // TODO AQUI ANIRIA LA EXECPCIO DE PAGINA PERO NO SE QUINA ES
         }
         if(this.isAuth == false){
             System.out.println("[P] AUTORIZACION"); // PAGINA AUTORIZACION
@@ -73,7 +73,7 @@ public class UnifiedPlatform {
 
     public void enterNIFandPINobt (Nif nif, Date valDate) throws NifNotRegisteredException, IncorrectValDateException, AnyMobileRegisteredException, ConnectException, NullAtr {
         if (this.nowState != State.TO_AUTH){
-
+            // TODO AQUI ANIRIA LA EXECPCIO DE PAGINA PERO NO SE QUINA ES
         }
         if(nif == null){
             throw new NifNotRegisteredException();
