@@ -1,7 +1,6 @@
 package services;
 
-import data.Nif;
-import data.SmallCode;
+import data.*;
 import exceptions.*;
 import publicadministration.Citizen;
 

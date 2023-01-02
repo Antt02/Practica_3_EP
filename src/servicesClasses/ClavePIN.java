@@ -1,7 +1,6 @@
 package servicesClasses;
 
-import data.Nif;
-import data.SmallCode;
+import data.*;
 import exceptions.*;
 import publicadministration.Citizen;
 import services.CertificationAuthority;

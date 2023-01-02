@@ -43,7 +43,7 @@ public class GenPolDepTest {
                 "C/Aleatori",
                 "601020304",
                 new Date(),
-                new SmallCode("123"),
+                new SmallCode("000"),
                 new DigitalSignature("1234567890abc"));
         assertThrows(IncorrectVerificationException.class, () -> polDep.verifyData(BadUser1, g));
         assertThrows(IncorrectVerificationException.class, () -> polDep.verifyData(BadUser2, g));

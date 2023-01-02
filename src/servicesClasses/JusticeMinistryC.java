@@ -1,11 +1,8 @@
 package servicesClasses;
 
-import data.DigitalSignature;
-import data.Goal;
+import data.*;
 import exceptions.*;
-import publicadministration.Citizen;
-import publicadministration.CrimConvictionsColl;
-import publicadministration.CriminalRecordCertf;
+import publicadministration.*;
 import services.JusticeMinistry;
 
 public class JusticeMinistryC implements JusticeMinistry {

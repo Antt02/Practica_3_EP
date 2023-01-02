@@ -1,8 +1,7 @@
 package servicesClasses;
 
 import data.Goal;
-import exceptions.ConnectException;
-import exceptions.IncorrectVerificationException;
+import exceptions.*;
 import publicadministration.Citizen;
 import services.GPD;
 
