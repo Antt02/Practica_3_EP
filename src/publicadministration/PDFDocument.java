@@ -22,6 +22,7 @@ public class PDFDocument {
     private File file;
     private final static String defaultPath = "informe.pdf";
 
+    // Q: PDF DOCUMENT NO HAURIA DE TENIR UN Path com a parametre a la constructora?
     public PDFDocument() throws NullAtr, BadPathException {
         this.creatDate = new Date();
         this.path = new DocPath(defaultPath);

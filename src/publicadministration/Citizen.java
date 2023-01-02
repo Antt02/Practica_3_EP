@@ -33,6 +33,8 @@ public class Citizen {
         //this.card = null;
     }
 
+
+
     public Nif getNif() throws NullAtr {
         if (this.nif == null) throw new NullAtr("El Citizen te el nif null");
         return this.nif;
@@ -69,7 +71,15 @@ public class Citizen {
     public void setCard(CreditCard card) {
         this.card = card;
     }
-
+    public void setNif(Nif nif){
+        this.nif = nif;
+    }
+    public void setValDate(Date valDate){
+        this.valDate = valDate;
+    }
+    public void setPin(SmallCode pin){
+        this.pin = pin;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
