@@ -3,10 +3,7 @@ package citizenmanagementplataform;
 import data.*;
 import exceptions.*;
 import publicadministration.*;
-import services.CAS;
-import services.CertificationAuthority;
-import services.GPD;
-import services.JusticeMinistry;
+import servicesClasses.*;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -18,15 +15,15 @@ public class UnifiedPlatform {
     // [O] -> Operacion
 
     //Atributs de la classe
-    Citizen user;
+    public Citizen user;
     State nowState;
     boolean isAuth = false;
     byte authMethod;
-    private JusticeMinistry justiceMinistry;
-    private CertificationAuthority certAuth;
-    private CAS CAS;
-    private GPD gpd;
-    boolean obteined = false;
+    private JusticeMinistryC justiceMinistry;
+    private ClavePIN certAuth;
+    private CredAuthServ CAS;
+    private GenPolDep gpd;
+    boolean obtained = false;
     //representació de quin procés estem fent?
 
     //Getters
@@ -37,10 +34,11 @@ public class UnifiedPlatform {
                 "",
                 "",
                 "",
-                null,
+                new Date(),
                 new SmallCode(""),
                 new DigitalSignature(""));
         this.nowState = State.INITIAL;
+        this.certAuth = new ClavePIN(this.user);
     }
 
     // Input events
@@ -125,21 +123,21 @@ public class UnifiedPlatform {
     }
 
     private void obtainCertificate(Goal goal) throws BadPathException, DigitalSignatureException, ConnectException, BadNif, NullAtr {
-        if (!this.obteined) {
+        if (!this.obtained) {
             CriminalRecordCertf cert = justiceMinistry.getCriminalRecordCertf(this.user, goal);
             System.out.println("[O]: OBTENIR CERTIFICAT");
             openDocument(cert.getPath());
-            this.obteined = true;
+            this.obtained = true;
         }
     }
 
-    private void printDocument() throws BadPathException, PrintingException {
-        throw new PrintingException();
+    private void printDocument() throws BadPathException {
+        throw new UnsupportedOperationException();
     }
 
     // Other internal operations (not required)
     private void registerPayment() {
-
+        throw new UnsupportedOperationException();
     }
 
     private void openDocument(DocPath path) throws BadPathException, NullAtr {

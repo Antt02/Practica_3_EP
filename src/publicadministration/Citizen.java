@@ -33,8 +33,6 @@ public class Citizen {
         //this.card = card;
     }
 
-
-
     public Nif getNif() throws NullAtr {
         if (this.nif == null) throw new NullAtr("El Citizen te el nif null");
         return this.nif;

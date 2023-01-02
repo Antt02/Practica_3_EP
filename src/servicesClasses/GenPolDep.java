@@ -7,7 +7,6 @@ import publicadministration.Citizen;
 import services.GPD;
 
 public class GenPolDep implements GPD {
-    //potser cal algun setter?
     Citizen citizen;
 
     public GenPolDep(Citizen citizen){this.citizen = citizen;}
