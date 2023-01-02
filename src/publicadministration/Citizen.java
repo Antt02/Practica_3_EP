@@ -30,7 +30,7 @@ public class Citizen {
         this.valDate = vDate;
         this.pin = PIN;
         this.digSign = DS;
-        this.card = null;
+        //this.card = null;
     }
 
     public Nif getNif() throws NullAtr {
@@ -75,7 +75,7 @@ public class Citizen {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Citizen civ = (Citizen) o;
-        return card.equals(civ.card) && nif.equals(civ.nif) && name.equals(civ.name) && mobileNumb.equals(civ.mobileNumb) && address.equals(civ.address) && valDate.equals(civ.valDate) && pin.equals(civ.pin) && digSign.equals(civ.digSign);
+        return nif.equals(civ.nif) && name.equals(civ.name) && mobileNumb.equals(civ.mobileNumb) && address.equals(civ.address) && valDate.equals(civ.valDate) && pin.equals(civ.pin) && digSign.equals(civ.digSign);
     }
 
     public String toString() {
