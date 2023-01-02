@@ -31,7 +31,7 @@ public class GenPolDepTest {
                 new DigitalSignature("1234567890abc"));
         //Nom incorrecte
         Citizen BadUser2 = new Citizen(new Nif("12345678A"),
-                "Pepe",
+                "Juan",
                 "C/Aleatori",
                 "601020304",
                 new Date(),
