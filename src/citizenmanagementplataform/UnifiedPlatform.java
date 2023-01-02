@@ -6,6 +6,7 @@ import exceptions.*;
 import publicadministration.*;
 import services.CertificationAuthority;
 import services.GPD;
+import services.JusticeMinistry;
 
 import java.util.*;
 
@@ -21,7 +22,9 @@ public class UnifiedPlatform {
     boolean isAuth = false;
     byte authMethod;
     private CertificationAuthorityDummy certificationAuthority;
+    private JusticeMinistry justiceMinistry;
     private GPD gpd;
+    boolean obteined = false;
     //representació de quin procés estem fent?
 
     //Getters
@@ -109,16 +112,21 @@ public class UnifiedPlatform {
     }
 
     private void realizePayment() {
-        // TODO: NI IDEA COM FER-HO, podrien faltar metodes a CAS?
     }
 
     private void enterCardData(CreditCard cardD) throws IncompleteFormException, NotValidPaymentDataException, InsufficientBalanceException, ConnectException {
-        // TODO: DIRIA QUE FALTA FER COMPROVACIONS
         this.user.setCard(cardD);
         System.out.println("[O] CAMBI DE CARD " + cardD.toString());
     }
 
-    private void obtainCertificate() throws BadPathException, DigitalSignatureException, ConnectException {
+    private void obtainCertificate(Goal goal) throws BadPathException, DigitalSignatureException, ConnectException, BadNif, NullAtr {
+        if(this.obteined == false){
+            CriminalRecordCertf cert = justiceMinistry.getCriminalRecordCertf(this.user,goal);
+            System.out.println("[O]: OBTENIR CERTIFICAT");
+            openDocument(cert.getPath());
+            this.obteined = true;
+        }
+
 
     }
 
