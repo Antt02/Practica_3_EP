@@ -7,6 +7,7 @@ import exceptions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import publicadministration.Citizen;
+import publicadministration.CreditCard;
 
 import java.util.Date;
 
@@ -20,11 +21,13 @@ public class CitizenTest {
     public void setUp() {
         civ = new Citizen(new Nif("12345678A"), "Juan", "Carrer Lleida n1", "678888675", date, new SmallCode("123"), new DigitalSignature("0123456789"));
     }
+
     @Test
-    public void sameCitizen(){
+    public void sameCitizen() {
         Citizen civ2 = new Citizen(new Nif("12345678A"), "Juan", "Carrer Lleida n1", "678888675", date, new SmallCode("123"), new DigitalSignature("0123456789"));
         assertTrue(civ.equals(civ2));
     }
+
     @Test
     public void sameNif() {
         try {
@@ -59,5 +62,12 @@ public class CitizenTest {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
+    }
+
+    @Test
+    public void creditCardtest() {
+        civ.setCard(new CreditCard(new Nif("12345678A"), "1234567814325674", date, new SmallCode("123")));
+        CreditCard cc =  new CreditCard(new Nif("12345678A"), "1234567814325674", date, new SmallCode("123"));
+        assertEquals(cc, civ.getCard());
     }
 }

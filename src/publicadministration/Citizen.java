@@ -20,6 +20,8 @@ public class Citizen {
     private SmallCode pin;
     private DigitalSignature digSign;
 
+    private CreditCard card;
+
     public Citizen(Nif nif, String name, String add, String mobile, Date vDate, SmallCode PIN, DigitalSignature DS) {
         this.nif = nif;
         this.name = name;
@@ -28,6 +30,7 @@ public class Citizen {
         this.valDate = vDate;
         this.pin = PIN;
         this.digSign = DS;
+        this.card = null;
     }
 
     public Nif getNif() throws NullAtr {
@@ -59,12 +62,20 @@ public class Citizen {
         return this.digSign;
     }
 
+    public CreditCard getCard() {
+        return this.card;
+    }
+
+    public void setCard(CreditCard card) {
+        this.card = card;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Citizen civ = (Citizen) o;
-        return nif.equals(civ.nif) && name.equals(civ.name) && mobileNumb.equals(civ.mobileNumb) && address.equals(civ.address) && valDate.equals(civ.valDate) && pin.equals(civ.pin) && digSign.equals(civ.digSign);
+        return card.equals(civ.card) && nif.equals(civ.nif) && name.equals(civ.name) && mobileNumb.equals(civ.mobileNumb) && address.equals(civ.address) && valDate.equals(civ.valDate) && pin.equals(civ.pin) && digSign.equals(civ.digSign);
     }
 
     public String toString() {
